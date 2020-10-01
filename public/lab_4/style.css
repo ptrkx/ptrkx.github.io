@@ -3,6 +3,7 @@
 html, body {
     margin: 0;
     padding: 0;
+    background-color: darkseagreen;
   }
   
   html {
@@ -14,9 +15,43 @@ html, body {
     width: 70%;
     min-width: 800px;
     margin: 0 auto;
-    background-color: #6091C3;
   }
   
+
+  .flex-outer li, .flex-inner{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .flex-outer > li > label, .flex-outer li p{
+    flex: 1 0 120px;
+    max-width: 220px;
+    padding: 8px;
+
+  }
+  
+  .flex-outer > li > label + *, .flex-inner{
+    flex: 1 0 220px;
+  }
+
+  .flex-inner li{
+    width: 100px;
+  }
+
+  .flex-inner{
+    justify-content: space-between;
+    width: 80px;
+  }
+
+  .flex-outer li button{
+    padding: 8px 16px;
+    border: none;
+    background: #333;
+    color:white;
+    text-transform: uppercase;
+  }
+
   /* || typography */
   
   h1, h2, h3 {
@@ -60,7 +95,6 @@ html, body {
   }
   
   body > * {
-    background-color: red;
     padding: 1%;
   }
   
