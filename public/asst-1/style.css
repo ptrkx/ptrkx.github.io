@@ -1,0 +1,13 @@
+body {
+    font: normal 18px/1.5 "arial", "Helvetica Neue", sans-serif;
+    background: #5BE387;
+    color: black;
+    padding: 30px 0;
+  }
+  .header{
+    color: #E6355E;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+  }
