@@ -3,40 +3,67 @@ body {
   background: #5be387;
   color: black;
 }
+
 .header {
-  color: #e6355e;
+  background-color: #072091;
+  color: rgb(160, 149, 149);
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
-  padding-bottom: 15px;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+  padding: 15px;
 }
 
 .header-img {
   display: flex;
   width: 28%;
 }
+
+.content {
+  max-width: 960px;
+  margin-right: 0px;
+  flex: 0 1 auto;
+}
+
 .wrapper {
-  font: normal 18px/1.5 "arial", "Helvetica Neue", sans-serif;
+ /* font: normal 18px/1.5 "arial", "Helvetica Neue", sans-serif;
   background: #29b4e6;
   color: black;
-  padding: 0 0;
+  padding: 0 0; */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  flex-direction: horizontal;
+
 }
 .left-side {
   display: flex;
+  margin-right: 15px;
   flex-wrap: wrap;
 }
+
 .left-side-para {
   background-color: lightgrey;
-  margin: 5%;
+  margin-right: 15px;
   padding: 5px;
 }
 .container {
   display: flex;
-  justify-content: space-around;
-  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
 }
 .about-side{
     background-color: lightgrey;
     margin: 2%;
     padding: 5px;
+
+}
+
+.body-img{
+  border-radius: 4px;
+  border-width: 1px;
+  border-style: solid;
+  max-width: 199px;
 }
