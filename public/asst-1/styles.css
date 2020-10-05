@@ -15,12 +15,14 @@ body {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
+  flex-direction: row;
 }
 
 .wrapper {
   display: flex;
   justify-content: center;
+  flex-direction: column;
 }
 
 .container {
