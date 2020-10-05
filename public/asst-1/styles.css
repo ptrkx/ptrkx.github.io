@@ -1,0 +1,92 @@
+body {
+  background-color: #FAEACD;
+}
+
+.header {
+  font-family: 'Staatliches', cursive;
+  font-weight: bold;
+  background-color: #279AAD;
+  color: #F5F2F0;
+  margin-top: -15px;
+  margin-left: -15px;
+  margin-right: -15px;
+  margin-bottom: 15px;
+  padding: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  font-family: 'Architects Daughter', cursive;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.content {
+  display: flex;
+  max-width: 960px;
+  margin-right: 15px;
+  flex: 0 1 auto;
+}
+
+.left-side {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.body-img {
+  display: flex;
+  border: 1px solid black;
+  border-radius: 4px;
+  max-width: 199px;
+}
+
+.caption {
+  display: flex;
+  background-color: #A4D7DB;
+  padding: 15px
+}
+
+.right-side {
+  background-color: #A4D7DB;
+  align-self: flex-end;
+  padding: 15px;
+}
+
+.sublist1, .sublist2, .sublist3 {
+  font-family: 'Yellowtail', cursive;
+  font-weight: normal;
+}
+
+@media screen and (max-width: 1000px) {
+  .container {
+    justify-content: center;
+  }
+
+  .content {
+    flex: 1 0 auto;
+    margin-right: 0px;
+    flex-direction: row;
+  }
+
+  .left-side {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .caption {
+    align-self: center;
+    justify-content: center;
+  }
+
+}
