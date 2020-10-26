@@ -1,4 +1,3 @@
-
 function range(int) {
   const arr = [];
   for (let i = 0; i < int; i += 1) {
@@ -17,8 +16,8 @@ function sortFunction(a, b, key) {
 }
 
 function getRandomIntInclusive(min, max) {
-  min = Math.ceil(min);
-  max = Math.floor(max);
+  min1 = Math.ceil(min);
+  max1 = Math.floor(max);
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
@@ -32,30 +31,29 @@ document.body.addEventListener('submit', async (e) => {
     },
     body: JSON.stringify(form)
   })
-    .then((fromServer) => fromServer.json());
+    .then((fromServer) => fromServer.json())
     .then((fromServer) => {
-        if(document.querySelector('.flex-inner')){
+      if (document.querySelector('.flex-inner')) {
         document.querySelector('.flex-inner').remove();
-        }
-        
-        const countrieslist = range(10);
-        const countriesliist = countries.map(() => {
-          const num = getRandomIntInclusive(0,243);
-          return fromServer[num];
-        });
+      }
 
-        const revcountrieslist = countriesliist.sortFunction((a, b) => sortFunction(a, b, 'name'));
-        const ol = document.createElement('ol');
-        clist.className = 'flex-inner';
-        $('form').prepend(ol);
+      const countrieslist = range(10);
+      const countriesliist = countries.map(() => {
+        const num = getRandomIntInclusive(0, 243);
+        return fromServer[num];
+      });
 
-        revcountrieslist.forEach((el, i) => {
-          const country = document.createElement('li');
-          $(country).append('<input type = "checkbox" value = ${el.code} id = ${el.code} />');
-          $(country).append('<label for = ${el.code}> ${el.name} </label>');
-          $(clist).append(country);
-      })
+      const revcountrieslist = countriesliist.sort((a, b) => sortFunction(b, a, 'name'));
+      const ol = document.createElement('ol');
+      ol.className = 'flex-inner';
+      $("form").prepend(ol);
 
+      revcountrieslist.forEach((el, i) => {
+        res.json(countries);
+        $(li).append('<input type = "checkbox" value = ${el.code} id = ${el.code} />');
+        $(li).append('<label for = ${el.code}> ${el.name} </label>');
+        $(li).append(country);
+      });
     })
     .catch((err) => console.log(err));
 });
