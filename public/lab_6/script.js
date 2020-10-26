@@ -52,6 +52,7 @@ document.body.addEventListener('submit', async (e) => {
         if (tempdouble === true) {
           num = getRandomIntInclusive(0, 243);
         }
+        tempdouble = false;
         return fromServer[num];
       });
 
