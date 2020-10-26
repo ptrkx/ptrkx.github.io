@@ -62,8 +62,8 @@ document.body.addEventListener('submit', async (e) => {
 
       revcountrieslist.forEach((country, i) => {
         const country1 = document.createElement('li');
-        $(country1).append('<input type="checkbox" value=${country.code} id=${country.code} />');
-        $(country1).append('<label for=${country.code}> ${country.name} </label>');
+        $(country1).append(`<input type="checkbox" value=${country.code} id=${country.code} />`);
+        $(country1).append(`<label for=${country.code}> ${country.name} </label>`);
         $(odlist).append(country1);
       });
     })
