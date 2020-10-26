@@ -1,3 +1,5 @@
+// const { forEach } = require("cypress/types/lodash");
+
 function range(int) {
   const arr = [];
   for (let i = 0; i < int; i += 1) {
@@ -38,22 +40,32 @@ document.body.addEventListener('submit', async (e) => {
       }
 
       const countrieslist = range(10);
-      const countriesliist = countries.map(() => {
-        const num = getRandomIntInclusive(0, 243);
+      let tempdouble = false;
+      const countrieslist2 = countrieslist.map(() => {
+        let num = getRandomIntInclusive(0, 243);
+        countrieslist.forEach((element, i) => {
+          if (element === num) {
+            tempdouble = true;
+          }
+        });
+
+        if (tempdouble === true) {
+          num = getRandomIntInclusive(0, 243);
+        }
         return fromServer[num];
       });
 
-      const revcountrieslist = countriesliist.sort((a, b) => sortFunction(b, a, 'name'));
-      const ol = document.createElement('ol');
-      ol.className = 'flex-inner';
-      $("form").prepend(ol);
+      const revcountrieslist = countrieslist2.sort((a, b) => sortFunction(b, a, 'name'));
+      const odlist = document.createElement('ol');
+      odlist.className = 'flex-inner';
+      $('form').prepend(odlist);
 
-      revcountrieslist.forEach((el, i) => {
-        res.json(countries);
-        $(li).append('<input type = "checkbox" value = ${el.code} id = ${el.code} />');
-        $(li).append('<label for = ${el.code}> ${el.name} </label>');
-        $(li).append(country);
+      revcountrieslist.forEach((country, i) => {
+        const country1 = document.createElement('li');
+        $(country1).append('<input type="checkbox" value=${country.code} id=${country.code} />');
+        $(country1).append('<label for=${country.code}> ${country.name} </label>');
+        $(odlist).append(country1);
       });
     })
-    .catch((err) => console.log(err));
+   // .catch((err) => console.log(err));
 });
