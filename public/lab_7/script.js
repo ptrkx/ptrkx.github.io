@@ -1,7 +1,19 @@
 function convertRestaurantsToCategories(restaurantList) {
+const tempArray = range(10);
+const restarray = tempArray.map((item) => {
+  const newRestArray = restArray.reduce((list, item) => {
+      const findCategory = list.find((finditem) => findItem.label === item.category);
 
-  return list;
-}
+      if(!findCategory){
+        list.push({
+          label: item.category,
+          y:1
+        });
+      }else {
+        findCategory.y = findCategory.y + 1;  
+      }
+      return list;
+}, []);
 
 function makeYourOptionsObject(datapointsFromRestaurantsList) {
   // set your chart configuration here!
