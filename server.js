@@ -3,7 +3,9 @@
 /* eslint-disable no-unused-vars */
 import express from 'express';
 import dotenv from 'dotenv';
-import countries from './public/lab_6/countries.js';
+import fetch from 'node-fetch';
+import { findIndex } from 'cypress/types/lodash';
+/*import countries from './public/lab_6/countries.js';*/
 
 dotenv.config();
 
@@ -24,10 +26,15 @@ app.route('/api')
   .get((req, res) => {
     console.log('GET request detected');
   })
-  .post((req, res) => {
+  .post((async, res) => {
     console.log('POST request detected');
-    console.log('Form data in res.body', req.body);
-    res.json(countries);
+//    console.log('Form data in res.body', req.body);
+    /*res.json(countries);*/
+
+    const data = await fetch("https://data.princegeorgescountymd.gov/resource/umjn-t2iz.json");
+    const data2 = await data.json;
+    res.json(data2);
+
   });
 
 app.listen(port, () => {

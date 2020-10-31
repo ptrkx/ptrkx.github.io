@@ -1,5 +1,5 @@
 function convertRestaurantsToCategories(restaurantList) {
-  // process your restaurants here!
+
   return list;
 }
 
