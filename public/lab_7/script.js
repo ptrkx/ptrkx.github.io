@@ -1,6 +1,6 @@
 function convertRestaurantsToCategories(restaurantList) {
   const restArray = restaurantList.map((item) => {
-    const newRestArray = restaurantList.reduce((collection, item, i) => {
+    const newRestArray = restaurantList.reduce((collection, item1, i) => {
       const findCategory = collection.find((findItem) => findItem.label === item.category);
 
       if (!findCategory) {
@@ -13,21 +13,19 @@ function convertRestaurantsToCategories(restaurantList) {
       }
       return collection;
     }, []);
-    console.table(newRestArray);
-    return newRestArray;
   });
+  console.table();
 }
-
 
 function makeYourOptionsObject(datapointsFromRestaurantsList) {
   // set your chart configuration here!
   CanvasJS.addColorSet('customColorSet1', [
     // add an array of colors here https://canvasjs.com/docs/charts/chart-options/colorset/
-    "#2F4F4F",
-    "#008080",
-    "#2E8B57",
-    "#3CB371",
-    "#90EE90"
+    '#2F4F4F',
+    '#008080',
+    '#2E8B57',
+    '#3CB371',
+    '#90EE90'
   ]);
 
   return {
@@ -45,27 +43,29 @@ function makeYourOptionsObject(datapointsFromRestaurantsList) {
       gridColor: 'rgba(1,77,101,.1)',
       title: 'Restaurants By Category',
       labelFontSize: 12,
-      scaleBreaks: {customBreaks: [
-        {
-          type:"waved",
-          startValue: 40,
-          endValue: 50,
-          color: "pink"
-        }, 
-        {
-          type:"waved",
-          startValue: 85,
-          endValue: 100,
-          color: "pink"
-        }, 
-        {
-          type:"waved",
-          startValue: 140,
-          endValue: 175,
-          color: "pink"
-        }, 
+      scaleBreaks: {
+        customBreaks: [
+          {
+            type: 'waved',
+            startValue: 40,
+            endValue: 50,
+            color: 'pink'
+          },
+          {
+            type: 'waved',
+            startValue: 85,
+            endValue: 100,
+            color: 'pink'
+          },
+          {
+            type: 'waved',
+            startValue: 140,
+            endValue: 175,
+            color: 'pink'
+          }
 
-      ]} // Add your scale breaks here https://canvasjs.com/docs/charts/chart-options/axisy/scale-breaks/custom-breaks/
+        ]
+      } // Add your scale breaks here https://canvasjs.com/docs/charts/chart-options/axisy/scale-breaks/custom-breaks/
     },
     data: [{
       type: 'bar',
@@ -86,6 +86,7 @@ function runThisWithResultsFromServer(jsonFromServer) {
   const options = makeYourOptionsObject(reorganizedData);
   const chart = new CanvasJS.Chart('chartContainer', options);
   chart.render();
+
 }
 
 // Leave lines 52-67 alone; do your work in the functions above
